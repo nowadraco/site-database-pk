@@ -1,39 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Button from './Button';
 
-class Title extends React.Component {
-  render() {
-    return (<h1>{this.props.label}</h1>);
-  }
-}
+const App = () => {
+  const handleClick = () => {
+    alert('Botão clicado!');
+  };
 
-class Paragraph extends React.Component {
-  render() {
-    return (
-      <p>
-        {this.props.text}
-      </p>
-    );
-  }
-}
+  return (
+    <div>
+      <h1>Olá Mundo</h1>
+      <Button label="Clique Aqui" onClick={handleClick} />
+    </div>
+  );
+};
 
-class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
-        <Title label={this.props.title} />
-        <Paragraph text={this.props.text} />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(
-  <Main title="Olá Mundo" text="Bem-vindo ao React!" />,
-  document.getElementById('react-app')
-);
+ReactDOM.render(<App />, document.getElementById('react-app'));
